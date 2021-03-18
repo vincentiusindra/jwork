@@ -2,30 +2,28 @@
 /**
  * Write a description of class JWork here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Vincentius Indra Lithgow
+ * @version 18/3/2021
  */
 public class JWork
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
     /**
-     * Constructor for objects of class JWork
+     * Constructor untuk objek dengan kelas Jwork
      */
     public JWork()
     {
 
     }
-
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * Method main
+     * Method ini inisialisasi beberapa objek baru
      */
     public static void main(String[] args)
     {
-        // put your code here
+        Location location_1 = new Location("DKI Jakarta", "Jakarta Pusat", "Menteng");
+        Recruiter recruiter_1 = new Recruiter(123, "Vincentius Indra Lithgow", "vincentiuslithgow@gmail.com", "088219440870", location_1);
+        Job job_1 = new Job(123, "Manager", recruiter_1, 150000, "Administration");
+        Jobseeker jobseeker_1 = new Jobseeker(321, "Budi", "budi@gmail.com", "a1b2c3d4", "14/6/2021");
+        Invoice invoice_1 = new Invoice(135, 123, "18 Maret 2021", 150000, jobseeker_1);
     }
 }
