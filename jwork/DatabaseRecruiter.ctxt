@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=DatabaseRecruiter
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ DatabaseRecruiter\ here.\r\n\r\n\ @author\ Vincentius\ Indra\ Lithgow\r\n\ @version\ 20/03/2021\r\n
+comment1.params=
+comment1.target=DatabaseRecruiter()
+comment1.text=\r\n\ Constructor\ untuk\ menginisialisi\ semua\ objek\ dari\ kelas\ DatabaseRecruiter\r\n
+comment2.params=listJob
+comment2.target=DatabaseRecruiter(java.lang.String[])
+comment2.text=\r\n\ Constructor\ untuk\ menginisialisi\ semua\ objek\ dari\ kelas\ DatabaseRecruiter\r\n\ @param\ listRecruiter\ adalah\ sebuah\ list\ yang\ berisi\ daftar\ semua\ perekrut\ \r\n
+comment3.params=recruiter
+comment3.target=boolean\ addRecruiter(Recruiter)
+comment3.text=\r\n\ Sebuah\ method\ untuk\ menambahkan\ data\ ke\ listRecruiter\r\n\ Method\ ini\ masih\ kosong\r\n
+comment4.params=recruiter
+comment4.target=boolean\ removeRecruiter(Recruiter)
+comment4.text=\r\n\ Sebuah\ method\ untuk\ mengurangi\ data\ dari\ listRecruiter\r\n\ Method\ ini\ masih\ kosong\r\n
+comment5.params=
+comment5.target=Job\ getRecruiter()
+comment5.text=\r\n\ Sebuah\ getter\ untuk\ mendapatkan\ sebuah\ perekrut\r\n\ getter\ ini\ masih\ kosong\r\n
+comment6.params=
+comment6.target=java.lang.String[]\ getListRecruiter()
+comment6.text=\r\n\ Sebuah\ getter\ untuk\ mendapatkan\ list\ dari\ perekrut\r\n\ @return\ listRecruiter\ merupakan\ daftar\ dari\ perekrut\r\n
+numComments=7

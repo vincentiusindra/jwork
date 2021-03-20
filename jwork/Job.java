@@ -122,10 +122,10 @@ public class Job
 
     /**
      * Sebuah method untuk menampilkan sebuah data
-     * Method ini masih kosong
+     * Method menampilkan nama pekerjaan
      */
     public void printData()
     {
-        
+        System.out.println(getName());
     }
 }

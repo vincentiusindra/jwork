@@ -121,10 +121,10 @@ public class Invoice
     
     /**
      * Sebuah method untuk menampilkan sebuah data
-     * Method ini masih kosong
+     * Method menampilkan total harga
      */
     public void printData()
     {
-    
+        System.out.println(getTotalFee());
     }
 }

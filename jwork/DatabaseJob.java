@@ -38,7 +38,7 @@ public class DatabaseJob
      * Sebuah method untuk mengurangi data dari listJob
      * Method ini masih kosong
      */
-    public boolean remove(Job job)
+    public boolean removeJob(Job job)
     {
         return false;
     }
@@ -51,9 +51,10 @@ public class DatabaseJob
     {
         return null;
     }
-/**
-     * Sebuah getter untuk mendapatkan list dair pekerjaan
-     * getter ini masih kosong
+    
+    /**
+     * Sebuah getter untuk mendapatkan list dari pekerjaan
+     * @return listJob merupakan daftar dari pekerjaan
      */
     public String[] getListJob()
     {
