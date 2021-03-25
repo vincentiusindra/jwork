@@ -23,12 +23,7 @@ public class JWork
     {
         Location location_1 = new Location("DKI Jakarta", "Jakarta Pusat", "Tanah Abang");
         Recruiter recruiter_1 = new Recruiter(123, "Vincentius Indra Lithgow", "vincentiuslithgow@gmail.com", "088219440870", location_1);
-        Job job_1 = new Job(123, "Manager", recruiter_1, 150000, "Administration");
-        Jobseeker jobseeker_1 = new Jobseeker(321, "Budi", "budi@gmail.com", "a1b2c3d4", "14/6/2021");
-        Invoice invoice_1 = new Invoice(135, 123, "18 Maret 2021", 150000, jobseeker_1);
-        System.out.println(recruiter_1.getName());
-        recruiter_1.setName("Indira");
-        System.out.println(recruiter_1.getName());
+        Job job_1 = new Job(123, "Manager", recruiter_1, 150000, JobCategory.UI);
         job_1.printData();
     }
 }

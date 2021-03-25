@@ -10,8 +10,8 @@ public class Job
     private int id;
     private String name;
     private int fee;
-    private String category;
     private Recruiter recruiter;
+    private JobCategory category;
 
     /**
      * Constructor untuk menginisialisi semua objek dari kelas Job
@@ -21,7 +21,7 @@ public class Job
      * @param fee adalah adalah biasa jasa untuk pekerjaan tersebut
      * @param category adalah kategori dari pekerjaan tersebut
      */
-    public Job(int id, String name, Recruiter recruiter, int fee, String category)
+    public Job(int id, String name, Recruiter recruiter, int fee, JobCategory category)
     {
         this.id = id;
         this.name = name;
@@ -61,7 +61,7 @@ public class Job
      * Sebuah getter untuk mendapatkan kategori dari sebuah pekerjaan
      * @return method ini mengembalikan atribut category
      */
-    public String getCategory()
+    public JobCategory getCategory()
     {
         return category;
     }
@@ -115,7 +115,7 @@ public class Job
      * Sebuah setter untuk menentukan kategori sebuah pekerjaan
      * @param category merupakan sebuah variabel String
      */
-    public void setCategory(String category)
+    public void setCategory(JobCategory category)
     {
         this.category = category;
     }
@@ -126,6 +126,12 @@ public class Job
      */
     public void printData()
     {
-        System.out.println(getName());
+        System.out.println("===================== JOB =====================");
+        System.out.println("ID: " + getId());
+        System.out.println("Name: " + getName());
+        System.out.println("Recruiter: " + recruiter.getName());
+        System.out.println("City: " + recruiter.getLocation().getCity());
+        System.out.println("Fee: " + fee);
+        System.out.println("Category: " + category);
     }
 }

@@ -1,18 +1,18 @@
-
 /**
  * Write a description of class DatabaseRecruiter here.
  *
  * @author Vincentius Indra Lithgow
- * @version 20/03/2021
+ * @version 25/03/2021
  */
-public class DatabaseRecruiter
+public class DatabaseJobSeeker
 {
-    private static String[] listRecruiter;
+    private static String[] listJobSeeker;
+    
     /**
      * Sebuah method untuk menambahkan data ke listRecruiter
      * Method ini masih kosong
      */
-    public static boolean addRecruiter(Recruiter recruiter)
+    public static boolean addJobSeeker(Jobseeker jobseeker)
     {
         return false;
     }
@@ -21,7 +21,7 @@ public class DatabaseRecruiter
      * Sebuah method untuk mengurangi data dari listRecruiter
      * Method ini masih kosong
      */
-    public static boolean removeRecruiter(Recruiter recruiter)
+    public static boolean removeJobSeeker(Jobseeker jobseeker)
     {
         return false;
     }
@@ -30,7 +30,7 @@ public class DatabaseRecruiter
      * Sebuah getter untuk mendapatkan sebuah perekrut
      * getter ini masih kosong
      */
-    public static Job getRecruiter()
+    public static Job getJobSeeker()
     {
         return null;
     }
@@ -39,8 +39,8 @@ public class DatabaseRecruiter
      * Sebuah getter untuk mendapatkan list dari perekrut
      * @return listRecruiter merupakan daftar dari perekrut
      */
-    public static String[] getListRecruiter()
+    public static String[] getListJobSeeker()
     {
-        return listRecruiter;
+        return listJobSeeker;
     }
 }
