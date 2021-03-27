@@ -1,9 +1,8 @@
-
 /**
  * Write a description of class Invoice here.
  *
  * @author Vincentius Indra Lithgow
- * @version 18/3/2021
+ * @version 27/3/2021
  */
 public class Invoice
 {
@@ -12,7 +11,9 @@ public class Invoice
     private String date;
     private int totalFee;
     private Jobseeker jobseeker;
-
+    private PaymentType paymentType;
+    private InvoiceStatus status;
+    
     /**
      * Constructor untuk menginisialisi semua objek dari kelas Jobseeker
      * @param id adalah id dari sebuah invoice 
@@ -21,12 +22,14 @@ public class Invoice
      * @param totalFee adalah adalah total biaya jasa dari sebuah invoice
      * @param jobseeker adalah objek dari kelas Jobseeker
      */
-    public Invoice(int id, int idJob, String date, int totalFee, Jobseeker jobseeker){
+    public Invoice(int id, int idJob, String date, int totalFee, Jobseeker jobseeker, PaymentType paymentType, InvoiceStatus status){
         this.id = id;
         this.idJob = idJob;
         this.date = date;
         this.totalFee = totalFee;
         this.jobseeker = jobseeker;
+        this.paymentType = paymentType;
+        this.status = status;
     }
 
     /**
@@ -64,7 +67,7 @@ public class Invoice
     {
         return totalFee;
     }
-
+    
     /**
      * Sebuah getter untuk mendapatkan jobseeker yang terkait dengan sebuah invoice
      * @return method ini mengembalikan atribut jobseeker
@@ -72,6 +75,15 @@ public class Invoice
     public Jobseeker getJobseeker() 
     {
         return jobseeker;
+    }
+    
+    /**
+     * Sebuah getter untuk mendapatkan status sebuah invoice
+     * @return method ini mengembalikan atribut status
+     */
+    public InvoiceStatus getInvoiceStatus() 
+    {
+        return status;
     }
     
     /**
@@ -120,11 +132,26 @@ public class Invoice
     }
     
     /**
-     * Sebuah method untuk menampilkan sebuah data
-     * Method menampilkan total harga
+     * Sebuah setter untuk menentukan status sebuah invoice
+     * @param jobseeker merupakan sebuah objek dengan kelas InvoiceStatus
+     */
+    public void setInvoiceStatus(InvoiceStatus status) 
+    {
+        this.status = status;
+    }
+    
+    /**
+     * Sebuah method untuk menampilkan sebuah invoice
+     * Method menampilkan data tentang invoice
      */
     public void printData()
     {
-        System.out.println(getTotalFee());
+        System.out.println("===================== INVOICE =====================");
+        System.out.println("ID: " + id);
+        System.out.println("ID Job: " + idJob);
+        System.out.println("Date: " + date);
+        System.out.println("Seeker: " + jobseeker.getName());
+        System.out.println("Fee: " + totalFee);
+        System.out.println("Status: " + status);
     }
 }

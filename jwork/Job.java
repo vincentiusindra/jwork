@@ -122,7 +122,7 @@ public class Job
 
     /**
      * Sebuah method untuk menampilkan sebuah data
-     * Method menampilkan nama pekerjaan
+     * Method menampilkan data tentang pekerjaan
      */
     public void printData()
     {

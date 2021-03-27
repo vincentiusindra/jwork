@@ -1,5 +1,5 @@
 /**
- * Write a description of class DatabaseRecruiter here.
+ * Write a description of enum class PaymentType here.
  *
  * @author Vincentius Indra Lithgow
  * @version 25/03/2021
@@ -13,9 +13,6 @@ public enum PaymentType {
     }
     public static void main(String[] args)
     {
-        PaymentType payment1 = PaymentType.BankPayment;
-        PaymentType payment2 = PaymentType.EwalletPayment;
-        System.out.println(payment1);
-        System.out.println(payment2);
+        
     }
 }
