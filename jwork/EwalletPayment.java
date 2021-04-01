@@ -14,6 +14,7 @@ public class EwalletPayment extends Invoice {
 
     public EwalletPayment(int id, Job job, String date, Jobseeker jobseeker, Bonus bonus, InvoiceStatus invoiceStatus) {
         super(id, job, date, jobseeker, invoiceStatus);
+        this.bonus = bonus;
     }
 
     @Override
@@ -47,7 +48,7 @@ public class EwalletPayment extends Invoice {
         System.out.println("Job: " + getJob().getName());
         System.out.println("Date: " + getDate());
         System.out.println("Job Seeker: " + getJobseeker().getName());
-        if(bonus != null && (bonus.getActive() == true) && getJob().getFee() > bonus.getMinTotalFee()){
+        if((bonus != null) && (bonus.getActive() == true) && getJob().getFee() > bonus.getMinTotalFee()){
             System.out.println("ReferralCode: " + bonus.getReferralCode());
         }
         setTotalFee();

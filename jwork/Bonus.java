@@ -98,7 +98,7 @@ public class Bonus
     
     /**
      * Sebuah setter untuk menentukan status keaktifan sebuah bonus
-     * @param dactive merupakan sebuah variabel boolean
+     * @param active merupakan sebuah variabel boolean
      */
     public void setActive(boolean active) {
         this.active = active;
