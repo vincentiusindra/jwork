@@ -16,9 +16,4 @@ public enum InvoiceStatus {
     public String toString() {
         return status;
     }
-    
-    public static void main(String[] args)
-    {
-        
-    }
 }

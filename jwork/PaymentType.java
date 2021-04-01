@@ -11,8 +11,9 @@ public enum PaymentType {
     private PaymentType(String payment) {
         this.payment = payment;
     }
-    public static void main(String[] args)
-    {
-        
+    
+    @Override
+    public String toString() {
+        return payment;
     }
 }

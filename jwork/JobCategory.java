@@ -17,8 +17,4 @@ public enum JobCategory {
     public String toString() {
         return jobcategory;
     }
-
-    public static void main(String[] args) {
-    
-    }
 }

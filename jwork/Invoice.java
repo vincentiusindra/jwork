@@ -2,17 +2,16 @@
  * Write a description of class Invoice here.
  *
  * @author Vincentius Indra Lithgow
- * @version 27/3/2021
+ * @version 1/4/2021
  */
-public class Invoice
+public abstract class Invoice
 {
     private int id;
-    private int idJob;
+    private Job job;
     private String date;
-    private int totalFee;
+    protected int totalFee;
     private Jobseeker jobseeker;
-    private PaymentType paymentType;
-    private InvoiceStatus status;
+    private InvoiceStatus invoiceStatus;
     
     /**
      * Constructor untuk menginisialisi semua objek dari kelas Jobseeker
@@ -22,14 +21,12 @@ public class Invoice
      * @param totalFee adalah adalah total biaya jasa dari sebuah invoice
      * @param jobseeker adalah objek dari kelas Jobseeker
      */
-    public Invoice(int id, int idJob, String date, int totalFee, Jobseeker jobseeker, PaymentType paymentType, InvoiceStatus status){
+    public Invoice(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus){
         this.id = id;
-        this.idJob = idJob;
+        this.job = job;
         this.date = date;
-        this.totalFee = totalFee;
         this.jobseeker = jobseeker;
-        this.paymentType = paymentType;
-        this.status = status;
+        this.invoiceStatus = invoiceStatus;
     }
 
     /**
@@ -45,9 +42,9 @@ public class Invoice
      * Sebuah getter untuk mendapatkan idJob dari sebuah invoice
      * @return method ini mengembalikan atribut idJob
      */
-    public int getIdJob()
+    public Job getJob()
     {
-        return idJob;
+        return job;
     }
     
     /**
@@ -78,12 +75,17 @@ public class Invoice
     }
     
     /**
-     * Sebuah getter untuk mendapatkan status sebuah invoice
-     * @return method ini mengembalikan atribut status
+     * Sebuah getter untuk mendapatkan tipe pembayaran sebuah invoice
+     * @return method ini mengembalikan atribut paymentType
      */
-    public InvoiceStatus getInvoiceStatus() 
-    {
-        return status;
+    public abstract PaymentType getPaymentType();
+    
+    /**
+     * Sebuah getter untuk mendapatkan status sebuah invoice
+     * @return method ini mengembalikan atribut invoiceStatus
+     */
+    public InvoiceStatus getInvoiceStatus(){
+        return invoiceStatus; 
     }
     
     /**
@@ -96,12 +98,12 @@ public class Invoice
     }
     
     /**
-     * Sebuah setter untuk menentukan idJob sebuah invoice
-     * @param idJob merupakan sebuah variabel integer
+     * Sebuah setter untuk menentukan Job sebuah invoice
+     * @param job merupakan sebuah objek dengan kelas Job
      */
-    public void setIdJobs(int idJob)
+    public void setjob(Job job)
     {
-        this.idJob = idJob;
+        this.job = job;
     }
     
     /**
@@ -115,12 +117,8 @@ public class Invoice
     
     /**
      * Sebuah setter untuk menentukan total biaya jasa sebuah invoice
-     * @param totalFee merupakan sebuah variabel String
      */
-    public void setTotalFee(int totalFee)
-    {
-        this.totalFee = totalFee;
-    }
+    public abstract void setTotalFee();
     
     /**
      * Sebuah setter untuk menentukan jobseeker yang terkait dengan sebuah invoice
@@ -137,21 +135,12 @@ public class Invoice
      */
     public void setInvoiceStatus(InvoiceStatus status) 
     {
-        this.status = status;
+        this.invoiceStatus = invoiceStatus;
     }
     
     /**
      * Sebuah method untuk menampilkan sebuah invoice
      * Method menampilkan data tentang invoice
      */
-    public void printData()
-    {
-        System.out.println("===================== INVOICE =====================");
-        System.out.println("ID: " + id);
-        System.out.println("ID Job: " + idJob);
-        System.out.println("Date: " + date);
-        System.out.println("Seeker: " + jobseeker.getName());
-        System.out.println("Fee: " + totalFee);
-        System.out.println("Status: " + status);
-    }
+    public abstract void printData();
 }
