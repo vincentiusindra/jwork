@@ -4,43 +4,42 @@
  * @author Vincentius Indra Lithgow
  * @version 1/4/2021
  */
-public class EwalletPayment extends Invoice {
+public class BankPayment extends Invoice {
     private static final PaymentType PAYMENT_TYPE = PaymentType.EwalletPayment;
-    private Bonus bonus;
-    
-    public EwalletPayment(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus) {
+    private int adminFee;
+
+    public BankPayment(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus) {
         super(id, job, date, jobseeker, invoiceStatus);
     }
-
-    public EwalletPayment(int id, Job job, String date, Jobseeker jobseeker, Bonus bonus, InvoiceStatus invoiceStatus) {
+    
+    public BankPayment(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus, int adminFee) {
         super(id, job, date, jobseeker, invoiceStatus);
-        this.bonus = bonus;
+        this.adminFee = adminFee;
     }
 
     @Override
     public PaymentType getPaymentType() {
         return PAYMENT_TYPE;
     }
-
-    public Bonus getBonus() {
-        return bonus;
+    
+    public int getAdminFee() {
+        return adminFee;
     }
-
-    public void setBonus(Bonus bonus) {
-        this.bonus = bonus;
+    
+    public void setadminFee(int adminFee) {
+        this.adminFee = adminFee;
     }
-
+    
     @Override
     public void setTotalFee() {
-        if(bonus != null && (bonus.getActive() == true) && getJob().getFee() > bonus.getMinTotalFee()){
-            super.totalFee = getJob().getFee() + bonus.getExtraFee();
+        if(adminFee > 0){
+            totalFee = getJob().getFee() - adminFee;
         } 
-        else {
-            super.totalFee = getJob().getFee();
+        else{
+            totalFee = getJob().getFee();
         }
     }
-
-
+    
     @Override
     public void printData() {
         System.out.println("===================== INVOICE =====================");
@@ -48,11 +47,9 @@ public class EwalletPayment extends Invoice {
         System.out.println("Job: " + getJob().getName());
         System.out.println("Date: " + getDate());
         System.out.println("Job Seeker: " + getJobseeker().getName());
-        if((bonus != null) && (bonus.getActive() == true) && getJob().getFee() > bonus.getMinTotalFee()){
-            System.out.println("ReferralCode: " + bonus.getReferralCode());
-        }
+        System.out.println("Admin Fee: " + getAdminFee());
         setTotalFee();
-        System.out.println("Fee: " + getTotalFee());
+        System.out.println("Total Fee: " + getTotalFee());
         System.out.println("Status: " + getInvoiceStatus());
         System.out.println("Payment Type: " + PAYMENT_TYPE);
     }
