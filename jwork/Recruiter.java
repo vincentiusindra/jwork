@@ -120,12 +120,8 @@ public class Recruiter
         this.location = location;
     }
 
-    /**
-     * Sebuah method untuk menampilkan sebuah data
-     * Method ini menampilkan nama dari seorang recruiter
-     */
-    public void printData()
-    {
-        System.out.println(getName());   
+    @Override
+    public String toString() {
+        return "Id = " + getId() + "\nNama = " + getName() + "\nEmail = " + getEmail() + "\nPhone Number = " + getPhoneNumber() + "\nLocation = " + getLocation();
     }
 }

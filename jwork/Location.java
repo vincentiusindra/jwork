@@ -77,12 +77,9 @@ public class Location
         this.description = description;
     }
 
-    /**
-     * Sebuah method untuk menampilkan sebuah data
-     * Method ini menampilkan provinsi
-     */
-    public void printData()
+    @Override
+    public String toString() 
     {
-        System.out.println(getProvince());
+        return "Province = " + getProvince() + "\nCity = " + getCity() + "\nDescription = " + getDescription();
     }
 }

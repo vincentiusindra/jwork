@@ -120,18 +120,9 @@ public class Job
         this.category = category;
     }
 
-    /**
-     * Sebuah method untuk menampilkan sebuah data
-     * Method menampilkan data tentang pekerjaan
-     */
-    public void printData()
+    @Override
+    public String toString() 
     {
-        System.out.println("===================== JOB =====================");
-        System.out.println("ID: " + getId());
-        System.out.println("Name: " + getName());
-        System.out.println("Recruiter: " + recruiter.getName());
-        System.out.println("City: " + recruiter.getLocation().getCity());
-        System.out.println("Fee: " + fee);
-        System.out.println("Category: " + category);
+        return "Id = " + getId() + "\nName = " + getName() + "\nRecruiter = " + getRecruiter() + "\nCity= " + getRecruiter().getLocation().getCity() + "\nFee = " + getFee() + "\nCategory = " + getCategory();
     }
 }
