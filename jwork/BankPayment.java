@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat;
+
 /**
  * Write a description of class Invoice here.
  *
@@ -8,13 +10,15 @@ public class BankPayment extends Invoice {
     private static final PaymentType PAYMENT_TYPE = PaymentType.EwalletPayment;
     private int adminFee;
 
-    public BankPayment(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus) {
-        super(id, job, date, jobseeker, invoiceStatus);
+    public BankPayment(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus)
+    {
+        super(id, job, jobseeker, invoiceStatus);
     }
     
-    public BankPayment(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus, int adminFee) {
-        super(id, job, date, jobseeker, invoiceStatus);
-        this.adminFee = adminFee;
+    public BankPayment(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus, int adminFee)
+    {
+        super(id, job, jobseeker, invoiceStatus);
+        this.setAdminFee(adminFee);
     }
 
     @Override
@@ -40,17 +44,19 @@ public class BankPayment extends Invoice {
         }
     }
     
-    @Override
-    public void printData() {
-        System.out.println("===================== INVOICE =====================");
-        System.out.println("ID: " + getId());
-        System.out.println("Job: " + getJob().getName());
-        System.out.println("Date: " + getDate());
-        System.out.println("Job Seeker: " + getJobseeker().getName());
-        System.out.println("Admin Fee: " + getAdminFee());
-        setTotalFee();
-        System.out.println("Total Fee: " + getTotalFee());
-        System.out.println("Status: " + getInvoiceStatus());
-        System.out.println("Payment Type: " + PAYMENT_TYPE);
+    public String toString()
+    {
+        SimpleDateFormat formattedDate = new SimpleDateFormat("dd-MMMM-yyyy");
+        String date = formattedDate.format(getDate().getTime());
+        if (adminFee != 0)
+        {
+            return ("Id = " + getId() + "\nJob = " + getJob().getName() + "\nDate = " + date + "\nJob Seeker = "
+                + getJobseeker().getName() + "Admin Fee = " + adminFee + "\nTotal Fee = " + getTotalFee() + "\nStatus = " + getInvoiceStatus() + "\nPayment = " + PAYMENT_TYPE);
+        }
+        else
+        {
+            return ("Id = " + getId() + "\nJob = " + getJob().getName() + "\nDate = " + date + "\nJob Seeker = "
+                + getJobseeker().getName()+ "\nTotal Fee = " + getTotalFee() + "\nStatus = " + getInvoiceStatus() + "\nPayment = " + PAYMENT_TYPE);
+        }
     }
 }

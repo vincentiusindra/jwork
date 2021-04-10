@@ -1,3 +1,6 @@
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 /**
  * Write a description of class Invoice here.
  *
@@ -8,7 +11,7 @@ public abstract class Invoice
 {
     private int id;
     private Job job;
-    private String date;
+    private Calendar date;
     protected int totalFee;
     private Jobseeker jobseeker;
     private InvoiceStatus invoiceStatus;
@@ -21,10 +24,9 @@ public abstract class Invoice
      * @param totalFee adalah adalah total biaya jasa dari sebuah invoice
      * @param jobseeker adalah objek dari kelas Jobseeker
      */
-    public Invoice(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus){
+    public Invoice(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus){
         this.id = id;
         this.job = job;
-        this.date = date;
         this.jobseeker = jobseeker;
         this.invoiceStatus = invoiceStatus;
     }
@@ -51,7 +53,7 @@ public abstract class Invoice
      * Sebuah getter untuk mendapatkan tanggal dari sebuah invoice
      * @return method ini mengembalikan atribut date
      */
-    public String getDate()
+    public Calendar getDate()
     {
         return date;
     }
@@ -110,9 +112,18 @@ public abstract class Invoice
      * Sebuah setter untuk menentukan tanggal sebuah invoice
      * @param date merupakan sebuah variabel String
      */
-    public void setDate(String date)
+    public void setDate(Calendar date)
     {
-        this.date = date;
+        this.date = Calendar.getInstance();
+    }
+    
+    /**
+     * Sebuah setter untuk menentukan tanggal sebuah invoice
+     * @param date merupakan sebuah variabel String
+     */
+    public void setDate(int year, int month, int dayOfMonth)
+    {
+        this.date = new GregorianCalendar(year, month-1, dayOfMonth);
     }
     
     /**
@@ -138,9 +149,5 @@ public abstract class Invoice
         this.invoiceStatus = invoiceStatus;
     }
     
-    /**
-     * Sebuah method untuk menampilkan sebuah invoice
-     * Method menampilkan data tentang invoice
-     */
-    public abstract void printData();
+    public abstract String toString();
 }
