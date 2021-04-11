@@ -13,11 +13,16 @@ public class JWork
      */
     public static void main(String[] args)
     {
-        Jobseeker jobseeker_1 = new Jobseeker(1, "Vincent", "vincentius.indra@ui.ac.id", "pAsSwOrD123", new GregorianCalendar(2021, 4, 8));
-        Jobseeker jobseeker_2 = new Jobseeker(2, "Vincent", "vincentius.indra@ui.ac.id", "Vincent2018", 2021, 04, 8);
-        Jobseeker jobseeker_3 = new Jobseeker(3, "Vincent", "vincentius.indra@ui.ac.id", "Vincent2018");
-        System.out.println(jobseeker_1.toString());
-        System.out.println(jobseeker_2.toString());
-        System.out.println(jobseeker_3.toString());
+        Location location_1 = new Location("DKI Jakarta", "Jakarta Pusat", "Tanah Abang");
+        Recruiter recruiter_1 = new Recruiter(123, "Vincentius Indra Lithgow", "vincentiuslithgow@gmail.com", "08821944-870", location_1);
+        Jobseeker jobseeker_1 = new Jobseeker(321, "Budi", "budi@ui.ac.id", "Budi123", new GregorianCalendar(2021, 3, 8));
+        Job job_1 = new Job(135, "UI Designer", recruiter_1, 50000,JobCategory.FrontEnd);
+        Bonus bonus_1 = new Bonus(246, "HEMAT", 5000, 50000, true);
+        EwalletPayment invoice_1 = new EwalletPayment(111, job_1, jobseeker_1, bonus_1, InvoiceStatus.Finished);
+        BankPayment invoice_2 = new BankPayment(222, job_1,  jobseeker_1, InvoiceStatus.Finished, 10);
+        invoice_1.setTotalFee();
+        invoice_2.setTotalFee();
+        System.out.println(invoice_1.toString());
+        System.out.println(invoice_2.toString());
     }
 }

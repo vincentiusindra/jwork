@@ -1,5 +1,4 @@
 import java.text.SimpleDateFormat;
-
 /**
  * Write a description of class Invoice here.
  *
@@ -30,7 +29,7 @@ public class BankPayment extends Invoice {
         return adminFee;
     }
     
-    public void setadminFee(int adminFee) {
+    public void setAdminFee(int adminFee) {
         this.adminFee = adminFee;
     }
     
@@ -44,6 +43,7 @@ public class BankPayment extends Invoice {
         }
     }
     
+    @Override
     public String toString()
     {
         SimpleDateFormat formattedDate = new SimpleDateFormat("dd-MMMM-yyyy");
@@ -51,12 +51,12 @@ public class BankPayment extends Invoice {
         if (adminFee != 0)
         {
             return ("Id = " + getId() + "\nJob = " + getJob().getName() + "\nDate = " + date + "\nJob Seeker = "
-                + getJobseeker().getName() + "Admin Fee = " + adminFee + "\nTotal Fee = " + getTotalFee() + "\nStatus = " + getInvoiceStatus() + "\nPayment = " + PAYMENT_TYPE);
+                + getJobseeker().getName() + "Admin Fee = " + adminFee + "\nTotal Fee = " + getTotalFee() + "\nStatus = " + getInvoiceStatus() + "\nPayment = " + PAYMENT_TYPE + "\n");
         }
         else
         {
             return ("Id = " + getId() + "\nJob = " + getJob().getName() + "\nDate = " + date + "\nJob Seeker = "
-                + getJobseeker().getName()+ "\nTotal Fee = " + getTotalFee() + "\nStatus = " + getInvoiceStatus() + "\nPayment = " + PAYMENT_TYPE);
+                + getJobseeker().getName()+ "\nTotal Fee = " + getTotalFee() + "\nStatus = " + getInvoiceStatus() + "\nPayment = " + PAYMENT_TYPE + "\n");
         }
     }
 }

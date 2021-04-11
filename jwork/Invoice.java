@@ -29,6 +29,7 @@ public abstract class Invoice
         this.job = job;
         this.jobseeker = jobseeker;
         this.invoiceStatus = invoiceStatus;
+        this.date = Calendar.getInstance();
     }
 
     /**
