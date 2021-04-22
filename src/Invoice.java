@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -10,7 +11,7 @@ import java.util.GregorianCalendar;
 public abstract class Invoice
 {
     private int id;
-    private Job job;
+    private ArrayList<Job> jobs;
     private Calendar date;
     protected int totalFee;
     private Jobseeker jobseeker;
@@ -24,11 +25,10 @@ public abstract class Invoice
      * @param totalFee adalah adalah total biaya jasa dari sebuah invoice
      * @param jobseeker adalah objek dari kelas Jobseeker
      */
-    public Invoice(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus){
+    public Invoice(int id, ArrayList<Job> jobs, Jobseeker jobseeker){
         this.id = id;
-        this.job = job;
+        this.jobs = jobs;
         this.jobseeker = jobseeker;
-        this.invoiceStatus = invoiceStatus;
         this.date = Calendar.getInstance();
     }
 
@@ -45,9 +45,9 @@ public abstract class Invoice
      * Sebuah getter untuk mendapatkan idJob dari sebuah invoice
      * @return method ini mengembalikan atribut idJob
      */
-    public Job getJob()
+    public ArrayList<Job> getJobs()
     {
-        return job;
+        return jobs;
     }
     
     /**
@@ -82,13 +82,13 @@ public abstract class Invoice
      * @return method ini mengembalikan atribut paymentType
      */
     public abstract PaymentType getPaymentType();
-    
+
     /**
      * Sebuah getter untuk mendapatkan status sebuah invoice
      * @return method ini mengembalikan atribut invoiceStatus
      */
     public InvoiceStatus getInvoiceStatus(){
-        return invoiceStatus; 
+        return invoiceStatus;
     }
     
     /**
@@ -104,9 +104,9 @@ public abstract class Invoice
      * Sebuah setter untuk menentukan Job sebuah invoice
      * @param job merupakan sebuah objek dengan kelas Job
      */
-    public void setjob(Job job)
+    public void setJobs(Job job)
     {
-        this.job = job;
+        this.jobs = jobs;
     }
     
     /**
@@ -140,12 +140,12 @@ public abstract class Invoice
     {
         this.jobseeker = jobseeker;
     }
-    
+
     /**
      * Sebuah setter untuk menentukan status sebuah invoice
      * @param jobseeker merupakan sebuah objek dengan kelas InvoiceStatus
      */
-    public void setInvoiceStatus(InvoiceStatus status) 
+    public void setInvoiceStatus(InvoiceStatus status)
     {
         this.invoiceStatus = invoiceStatus;
     }

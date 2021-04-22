@@ -1,46 +1,57 @@
-
+import java.util.ArrayList;
 /**
  * Write a description of class DatabaseRecruiter here.
  *
  * @author Vincentius Indra Lithgow
- * @version 20/03/2021
+ * @version 22/04/2021
  */
+
 public class DatabaseRecruiter
 {
-    private static String[] listRecruiter;
-    /**
-     * Sebuah method untuk menambahkan data ke listRecruiter
-     * Method ini masih kosong
-     */
+    private static ArrayList<Recruiter> RECRUITER_DATABASE = new ArrayList<Recruiter>();
+    private static int lastId = 0;
+
+    public static ArrayList<Recruiter> getRecruiterDatabase()
+    {
+        return RECRUITER_DATABASE;
+    }
+
+    public static int getLastId()
+    {
+        return lastId;
+    }
+
+    public static Recruiter getRecruiterById(int id)
+    {
+        Recruiter tempVar = null;
+        for (Recruiter recruiter: RECRUITER_DATABASE) {
+            if (id == recruiter.getId()){
+                tempVar = recruiter;
+            }
+        }
+        return tempVar;
+    }
+
     public static boolean addRecruiter(Recruiter recruiter)
     {
-        return false;
+        RECRUITER_DATABASE.add(recruiter);
+        lastId = recruiter.getId();
+        return true;
     }
-    
-    /**
-     * Sebuah method untuk mengurangi data dari listRecruiter
-     * Method ini masih kosong
-     */
-    public static boolean removeRecruiter(Recruiter recruiter)
+
+    public static boolean removeRecruiter(int id)
     {
-        return false;
+        boolean tempBool = true;
+        for (Recruiter recruiter: RECRUITER_DATABASE) {
+            if (id == recruiter.getId()){
+                RECRUITER_DATABASE.remove(id);
+                tempBool = true;
+            }
+            else{
+                tempBool = false;
+            }
+        }
+        return tempBool;
     }
-    
-    /**
-     * Sebuah getter untuk mendapatkan sebuah perekrut
-     * getter ini masih kosong
-     */
-    public static Job getRecruiter()
-    {
-        return null;
-    }
-    
-    /**
-     * Sebuah getter untuk mendapatkan list dari perekrut
-     * @return listRecruiter merupakan daftar dari perekrut
-     */
-    public static String[] getListRecruiter()
-    {
-        return listRecruiter;
-    }
+
 }

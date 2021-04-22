@@ -1,4 +1,5 @@
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 /**
  * Write a description of class Invoice here.
@@ -9,15 +10,13 @@ import java.text.SimpleDateFormat;
 public class EwalletPayment extends Invoice {
     private static final PaymentType PAYMENT_TYPE = PaymentType.EwalletPayment;
     private Bonus bonus;
-    
-    public EwalletPayment(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus)
-    {
-        super(id, job, jobseeker, invoiceStatus);
+
+    public EwalletPayment(int id, ArrayList<Job> jobs, Jobseeker jobseeker) {
+        super(id, jobs, jobseeker);
     }
 
-    public EwalletPayment(int id, Job job,Jobseeker jobseeker, Bonus bonus, InvoiceStatus invoiceStatus)
-    {
-        super(id, job, jobseeker, invoiceStatus);
+    public EwalletPayment(int id, ArrayList<Job> jobs, Jobseeker jobseeker, Bonus bonus) {
+        super(id, jobs, jobseeker);
         this.setBonus(bonus);
     }
 
@@ -36,11 +35,14 @@ public class EwalletPayment extends Invoice {
 
     @Override
     public void setTotalFee() {
-        if(bonus != null && (bonus.getActive() == true) && getJob().getFee() > bonus.getMinTotalFee()){
-            super.totalFee = getJob().getFee() + bonus.getExtraFee();
-        } 
-        else {
-            super.totalFee = getJob().getFee();
+        ArrayList<Job> jobs = getJobs();
+        for(Job job: jobs){
+            int fee = job.getFee();
+            if (bonus != null && (bonus.getActive() == true) && fee > bonus.getMinTotalFee()) {
+                super.totalFee = fee + bonus.getExtraFee();
+            } else {
+                super.totalFee = fee;
+            }
         }
     }
 
@@ -50,14 +52,15 @@ public class EwalletPayment extends Invoice {
     {
         SimpleDateFormat formattedDate = new SimpleDateFormat("dd-MMMM-yyyy");
         String date = formattedDate.format(getDate().getTime());
-        if ((bonus != null) && (bonus.getActive() == true) && (getJob().getFee() > bonus.getMinTotalFee()))
-        {
-            return ("Id = " + getId() + "\nJob = " + getJob().getName() + "\nDate = " + date + "\nJob Seeker = "
-                + getJobseeker().getName() + "Referral Code = " + bonus.getReferralCode() + "\nTotal Fee = " + getTotalFee() + "\nStatus = " + getInvoiceStatus() + "\nPayment = " + PAYMENT_TYPE + "\n");
-        }else
-        {
-            return ("Id = " + getId() + "\nJob = " + getJob().getName() + "\nDate = " + date + "\nJob Seeker = "
-                + getJobseeker().getName()+ "\nTotal Fee = " + getTotalFee() + "\nStatus = " + getInvoiceStatus() + "\nPayment = " + PAYMENT_TYPE + "\n");
+        String string = "";
+        for (Job job : getJobs()) {
+            if ((bonus != null) && (bonus.getActive() == true) && (job.getFee() > bonus.getMinTotalFee())) {
+                string.concat("\nId = " + getId() + "\nJob = " + job.getName() + "\nDate = " + date + "\nJob Seeker = " + getJobseeker().getName() + "\nReferral Code = " + bonus.getReferralCode() + "\nTotal Fee = " + getTotalFee() + "\nStatus = " + getInvoiceStatus() + "\nPayment = " + PAYMENT_TYPE);
+            } else {
+                string.concat("\nId = " + getId() + "\nJob = " + job.getName() + "\nDate = " + date + "\nJob Seeker = " + getJobseeker().getName() + bonus.getReferralCode() + "\nTotal Fee = " + getTotalFee() + "\nStatus = " + getInvoiceStatus() + "\nPayment = " + PAYMENT_TYPE);
+            }
         }
+        return string;
     }
 }
+

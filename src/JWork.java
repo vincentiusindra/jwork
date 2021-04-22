@@ -13,16 +13,15 @@ public class JWork
      */
     public static void main(String[] args)
     {
-        Location location_1 = new Location("DKI Jakarta", "Jakarta Pusat", "Tanah Abang");
-        Recruiter recruiter_1 = new Recruiter(123, "Vincentius Indra Lithgow", "vincentiuslithgow@gmail.com", "08821944-870", location_1);
-        Jobseeker jobseeker_1 = new Jobseeker(321, "Budi", "budi@ui.ac.id", "Budi123", new GregorianCalendar(2021, 3, 8));
-        Job job_1 = new Job(135, "UI Designer", recruiter_1, 50000,JobCategory.FrontEnd);
-        Bonus bonus_1 = new Bonus(246, "HEMAT", 5000, 50000, true);
-        EwalletPayment invoice_1 = new EwalletPayment(111, job_1, jobseeker_1, bonus_1, InvoiceStatus.Finished);
-        BankPayment invoice_2 = new BankPayment(222, job_1,  jobseeker_1, InvoiceStatus.Finished, 10);
-        invoice_1.setTotalFee();
-        invoice_2.setTotalFee();
-        System.out.println(invoice_1.toString());
-        System.out.println(invoice_2.toString());
+        Location location1 = new Location("DKI Jakarta", "Jakarta Pusat", "Tanah Abang");
+        DatabaseRecruiter.addRecruiter(new Recruiter(DatabaseRecruiter.getLastId()+1, "Budi", "budi@ui.ac.id", "088888888888", location1));
+        DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseRecruiter.getLastId()+1, "Vincentius Indra Lithgow", "vincentius.indra@ui.ac.id", "Password123", 2021, 04, 22));
+        DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseRecruiter.getLastId()+1, "Vincentius Indra Lithgow", "vincentius.indra@ui.ac.id", "Password123", 2021, 04, 22));
+        DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseRecruiter.getLastId()+1, "Indira Insiyah", "indira.insiyah@ui.ac.id", "123Password", 2021, 04, 22));
+        System.out.println(DatabaseJobseeker.getJobseekerDatabase());
+        DatabaseJob.addJob(new Job(DatabaseJob.getLastId() + 1, "Senior Frontend Engineer", DatabaseRecruiter.getRecruiterById(1), 54321, JobCategory.FrontEnd));
+        DatabaseJob.addJob(new Job(DatabaseJob.getLastId() + 1, "Junior Frontend Engineer", DatabaseRecruiter.getRecruiterById(1), 12345, JobCategory.FrontEnd));
+        DatabaseJob.addJob(new Job(DatabaseJob.getLastId() + 1, "Junior Backend Engineer", DatabaseRecruiter.getRecruiterById(1), 10000, JobCategory.BackEnd));
+        System.out.println(DatabaseJob.getJobByCategory(JobCategory.FrontEnd));
     }
 }
