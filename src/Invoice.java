@@ -145,7 +145,7 @@ public abstract class Invoice
      * Sebuah setter untuk menentukan status sebuah invoice
      * @param jobseeker merupakan sebuah objek dengan kelas InvoiceStatus
      */
-    public void setInvoiceStatus(InvoiceStatus status)
+    public void setInvoiceStatus(InvoiceStatus invoiceStatus)
     {
         this.invoiceStatus = invoiceStatus;
     }

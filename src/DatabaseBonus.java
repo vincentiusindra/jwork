@@ -56,9 +56,7 @@ public class DatabaseBonus {
                 bonus.setActive(true);
                 tempBool = true;
             }
-            else{
-                tempBool =  false;
-            }
+            tempBool =  false;
         }
         return tempBool;
     }
@@ -70,9 +68,7 @@ public class DatabaseBonus {
                 bonus.setActive(false);
                 tempBool = true;
             }
-            else{
-                tempBool =  false;
-            }
+            tempBool =  false;
         }
         return tempBool;
     }
@@ -84,9 +80,7 @@ public class DatabaseBonus {
                 BONUS_DATABASE.remove(bonus);
                 tempBool = true;
             }
-            else{
-                tempBool = false;
-            }
+            tempBool = false;
         }
         return tempBool;
     }

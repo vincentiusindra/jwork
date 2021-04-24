@@ -23,5 +23,7 @@ public class JWork
         DatabaseJob.addJob(new Job(DatabaseJob.getLastId() + 1, "Junior Frontend Engineer", DatabaseRecruiter.getRecruiterById(1), 12345, JobCategory.FrontEnd));
         DatabaseJob.addJob(new Job(DatabaseJob.getLastId() + 1, "Junior Backend Engineer", DatabaseRecruiter.getRecruiterById(1), 10000, JobCategory.BackEnd));
         System.out.println(DatabaseJob.getJobByCategory(JobCategory.FrontEnd));
+        DatabaseBonus.addBonus(new Bonus(1, "HEMAT12", 1000, 500, false));
+        DatabaseBonus.addBonus(new Bonus(1, "HEMAT24", 1000, 500, false));
     }
 }
