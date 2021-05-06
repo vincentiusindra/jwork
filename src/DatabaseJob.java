@@ -21,59 +21,59 @@ public class DatabaseJob
         return lastId;
     }
 
-    public static Job getJobById(int id)
-    {
+    public static Job getJobById(int id) throws JobNotFoundException {
         Job tempVar = null;
-        for (Job job: JOB_DATABASE) {
-            if (id == job.getId()){
-                tempVar = job;
+        for (Job jobb : JOB_DATABASE) {
+            if (id == jobb.getId()) {
+                tempVar = jobb;
+                return tempVar;
             }
+        }
+        if (tempVar == null){
+            throw new JobNotFoundException(id);
         }
         return tempVar;
     }
 
-    public static ArrayList<Job> getJobByRecruiter(int recruiterId)
-    {
-        ArrayList<Job> tempVar = new ArrayList<Job>();;
+    public static ArrayList<Job> getJobByRecruiter(int recruiterId){
+        ArrayList<Job> tempVar = null;;
         for (Job job: JOB_DATABASE) {
-            if (recruiterId == job.getRecruiter().getId()){
+            if (job.getRecruiter().getId() == recruiterId) {
+                if (tempVar == null){
+                    tempVar = new ArrayList<Job>();
+                }
                 tempVar.add(job);
             }
         }
         return tempVar;
     }
 
-    public static ArrayList<Job> getJobByCategory(JobCategory category)
-    {
-        ArrayList<Job> tempVar = new ArrayList<Job>();;
+    public static ArrayList<Job> getJobByCategory(JobCategory category){
+        ArrayList<Job> tempVar = null;;
         for (Job job: JOB_DATABASE) {
-            if (category == job.getCategory()){
+            if (job.getCategory() == category) {
+                if (tempVar == null) {
+                    tempVar = new ArrayList<Job>();
+                }
                 tempVar.add(job);
             }
         }
         return tempVar;
     }
 
-    public static boolean addJob(Job job)
-    {
+    public static boolean addJob(Job job){
         JOB_DATABASE.add(job);
         lastId = job.getId();
         return true;
     }
 
-    public static boolean removeJob(Job job)
-    {
-        boolean tempBool = true;
-        for (Job jobb : JOB_DATABASE) {
-            if (job.getId() == job.getId()){
+    public static boolean removeJob(int id) throws JobNotFoundException{
+        for (Job job: JOB_DATABASE) {
+            if (job.getId() == id) {
                 JOB_DATABASE.remove(job);
-                tempBool = true;
-            }
-            else{
-                tempBool = false;
+                return true;
             }
         }
-        return tempBool;
+        throw new JobNotFoundException(id);
     }
-
 }

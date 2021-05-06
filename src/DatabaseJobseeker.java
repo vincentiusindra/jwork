@@ -22,53 +22,35 @@ public class DatabaseJobseeker
         return lastId;
     }
 
-    public static Jobseeker getJobseekerById(int id)
-    {
+    public static Jobseeker getJobseekerById(int id) throws JobseekerNotFoundException{
         Jobseeker tempVar = null;
-        for (Jobseeker jobseeker: JOBSEEKER_DATABASE) {
-            if (id == jobseeker.getId()){
+        for (Jobseeker jobseeker : JOBSEEKER_DATABASE) {
+            if (id == jobseeker.getId()) {
                 tempVar = jobseeker;
+                return tempVar;
             }
         }
-        return tempVar;
+        throw new JobseekerNotFoundException(id);
     }
 
-    public static boolean addJobseeker(Jobseeker jobseeker)
-    {
-        boolean tempBool = false;
-        if (JOBSEEKER_DATABASE.size() == 0){
-            JOBSEEKER_DATABASE.add(jobseeker);
-            lastId = jobseeker.getId();
-            tempBool = true;
-            return tempBool;
-        }
-        for (int i = 0; i < JOBSEEKER_DATABASE.size(); i++) {
-            if (jobseeker.getEmail().equals(JOBSEEKER_DATABASE.get(i).getEmail())) {
-                tempBool = false;
-                return tempBool;
-            } else {
-                JOBSEEKER_DATABASE.add(jobseeker);
-                lastId = jobseeker.getId();
-                tempBool = true;
-                return tempBool;
+    public static boolean addJobseeker(Jobseeker jobseeker) throws EmailAlreadyExistsException{
+        for (Jobseeker jobseekeerr: JOBSEEKER_DATABASE) {
+            if (jobseekeerr.getEmail() == jobseeker.getEmail()) {
+                throw new EmailAlreadyExistsException(jobseeker);
             }
-
         }
-        return tempBool;
+        JOBSEEKER_DATABASE.add(jobseeker);
+        lastId = jobseeker.getId();
+        return true;
     }
 
-    public static boolean removeJobseeker(int id)
-    {
-        boolean tempBool = true;
+    public static boolean removeJobseeker(int id) throws JobseekerNotFoundException{
         for (Jobseeker jobseeker: JOBSEEKER_DATABASE) {
-            if (id == jobseeker.getId()){
-                JOBSEEKER_DATABASE.remove(id);
-                tempBool = true;
-            }
-            else{
-                tempBool = false;
+            if (id == jobseeker.getId()) {
+                JOBSEEKER_DATABASE.remove(jobseeker.getId());
+                return true;
             }
         }
-        return tempBool;
+        throw new JobseekerNotFoundException(id);
     }
 }
