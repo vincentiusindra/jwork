@@ -91,5 +91,6 @@ public class JWork
         for (Invoice invoice: DatabaseInvoice.getInvoiceDatabase()){
             new Thread(new FeeCalculator(invoice)).start();
         }
+
     }
 }
