@@ -1,16 +1,17 @@
 package vincentiusindralithgow.jwork;
 
 /**
- * Write a description of class Location here.
+ * Kelas Location digunakan untuk lokasi dari seorang recruiter.
  *
  * @author Vincentius Indra Lithgow
- * @version 18/3/2021
+ * @version 27/6/2021
  */
 public class Location
 {
     private String province;
     private String city;
     private String description;
+
     /**
      * Constructor untuk menginisialisi semua objek dari kelas Location
      * @param province adalah nama provinsi 
@@ -78,6 +79,9 @@ public class Location
         this.description = description;
     }
 
+    /**
+     * Sebuah method untuk menampilkan informasi mengenai lokasi terkait
+     */
     @Override
     public String toString() 
     {

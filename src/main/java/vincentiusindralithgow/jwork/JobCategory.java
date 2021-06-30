@@ -1,10 +1,10 @@
 package vincentiusindralithgow.jwork;
 
 /**
- * Write a description of enum class JobCategory here.
+ * Kelas InvoiceStatus merupakan sebuah kelas enumerasi untuk mewakili kategori sebuah job.
  *
  * @author Vincentius Indra Lithgow
- * @version 25/03/2021
+ * @version 27/6/2021
  */
 public enum JobCategory {
     WebDeveloper("Web Developer"), FrontEnd("Front End"), BackEnd("Back End"), UI("UI"), UX("UX"), Devops("Devops"),

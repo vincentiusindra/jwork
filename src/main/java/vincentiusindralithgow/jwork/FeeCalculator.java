@@ -1,5 +1,11 @@
 package vincentiusindralithgow.jwork;
 
+/**
+ * Kelas FeeCalculator mengkalkulasikan biaya total dari sebuah invoice
+ *
+ * @author Vincentius Indra Lithgow
+ * @version 27/6/2021
+ */
 public class FeeCalculator implements Runnable{
     private Invoice invoice;
 

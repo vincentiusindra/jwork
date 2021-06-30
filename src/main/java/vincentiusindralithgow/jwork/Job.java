@@ -1,10 +1,10 @@
 package vincentiusindralithgow.jwork;
 
 /**
- * Write a description of class Job here.
+ * Kelas Job digunakan untuk job yang bisa dilamar oleh seorang jobseeker.
  *
  * @author Vincentius Indra Lithgow
- * @version 18/3/2021
+ * @version 27/6/2021
  */
 public class Job
 {
@@ -121,6 +121,9 @@ public class Job
         this.category = category;
     }
 
+    /**
+     * Sebuah method untuk menampilkan informasi mengenai job terkait
+     */
     @Override
     public String toString() 
     {

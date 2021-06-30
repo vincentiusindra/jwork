@@ -5,10 +5,10 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /**
- * Write a description of class Invoice here.
+ * Kelas BankPayment merupakan sebuah kelas abstract yang akan menjadi super-class dari kelas BankPayment dan EwalletPayment.
  *
  * @author Vincentius Indra Lithgow
- * @version 1/4/2021
+ * @version 27/6/2021
  */
 public abstract class Invoice
 {
@@ -20,17 +20,16 @@ public abstract class Invoice
     private InvoiceStatus invoiceStatus;
     
     /**
-     * Constructor untuk menginisialisi semua objek dari kelas Jobseeker
+     * Constructor untuk menginisialisi semua objek dari kelas Invoice
      * @param id adalah id dari sebuah invoice 
-     * @param idJob adalah idJob dari sebuah invoice 
-     * @param date adalah tanggal dari sebuah invoice
-     * @param totalFee adalah adalah total biaya jasa dari sebuah invoice
+     * @param jobs adalah ArrayList objek dari kelas Job
      * @param jobseeker adalah objek dari kelas Jobseeker
      */
     public Invoice(int id, ArrayList<Job> jobs, Jobseeker jobseeker){
         this.id = id;
         this.jobs = jobs;
         this.jobseeker = jobseeker;
+        this.invoiceStatus = InvoiceStatus.OnGoing;
         this.date = Calendar.getInstance();
     }
 
@@ -44,8 +43,8 @@ public abstract class Invoice
     }
     
     /**
-     * Sebuah getter untuk mendapatkan idJob dari sebuah invoice
-     * @return method ini mengembalikan atribut idJob
+     * Sebuah getter untuk mendapatkan ArrayList objek dari kelas Job
+     * @return method ini mengembalikan atribut jobs
      */
     public ArrayList<Job> getJobs()
     {
@@ -78,10 +77,9 @@ public abstract class Invoice
     {
         return jobseeker;
     }
-    
+
     /**
-     * Sebuah getter untuk mendapatkan tipe pembayaran sebuah invoice
-     * @return method ini mengembalikan atribut paymentType
+     * Sebuah method abstract yang akan di override di sub-class
      */
     public abstract PaymentType getPaymentType();
 
@@ -117,20 +115,22 @@ public abstract class Invoice
      */
     public void setDate(Calendar date)
     {
-        this.date = Calendar.getInstance();
+        this.date = date;
     }
     
     /**
      * Sebuah setter untuk menentukan tanggal sebuah invoice
-     * @param date merupakan sebuah variabel String
+     * @param year merupakan sebuah variabel integer
+     * @param month merupakan sebuah variabel integer
+     * @param dayOfMonth merupakan sebuah variabel integer
      */
     public void setDate(int year, int month, int dayOfMonth)
     {
-        this.date = new GregorianCalendar(year, month-1, dayOfMonth);
+        this.date = new GregorianCalendar(year, month, dayOfMonth);
     }
-    
+
     /**
-     * Sebuah setter untuk menentukan total biaya jasa sebuah invoice
+     * Sebuah method abstract yang akan di override di sub-class
      */
     public abstract void setTotalFee();
     
@@ -145,12 +145,15 @@ public abstract class Invoice
 
     /**
      * Sebuah setter untuk menentukan status sebuah invoice
-     * @param jobseeker merupakan sebuah objek dengan kelas InvoiceStatus
+     * @param invoiceStatus merupakan sebuah objek dengan kelas InvoiceStatus
      */
     public void setInvoiceStatus(InvoiceStatus invoiceStatus)
     {
         this.invoiceStatus = invoiceStatus;
     }
-    
+
+    /**
+     * Sebuah method abstract yang akan di override di sub-class
+     */
     public abstract String toString();
 }

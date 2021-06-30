@@ -1,10 +1,10 @@
 package vincentiusindralithgow.jwork;
 
 /**
- * Write a description of enum class InvoiceStatus here.
+ * Kelas InvoiceStatus merupakan sebuah kelas enumerasi untuk mewakili status sebuah invoice.
  *
  * @author Vincentius Indra Lithgow
- * @version 2/03/2021
+ * @version 27/6/2021
  */
 public enum InvoiceStatus {
     OnGoing("On Going"), Finished("Finished"), Cancelled("Cancelled");

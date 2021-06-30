@@ -4,7 +4,7 @@ package vincentiusindralithgow.jwork;
  * Write a description of class Recruiter here.
  *
  * @author Vincentius Indra Lithgow
- * @version 18/3/2021
+ * @version 27/6/2021
  */
 public class Recruiter
 {
@@ -121,6 +121,9 @@ public class Recruiter
         this.location = location;
     }
 
+    /**
+     * Sebuah method untuk menampilkan informasi mengenai recruiter terkait
+     */
     @Override
     public String toString() {
         return "Id = " + getId() + "\nNama = " + getName() + "\nEmail = " + getEmail() + "\nPhone Number = " + getPhoneNumber() + "\nLocation = " + getLocation();

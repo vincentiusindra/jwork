@@ -9,10 +9,10 @@ import java.text.SimpleDateFormat;
 
 
 /**
- * Write a description of class Jobseeker here.
+ * Kelas Jobseeker digunakan untuk jobseeker yang bisa melamar sebuah pekerjaan.
  *
  * @author Vincentius Indra Lithgow
- * @version 18/3/2021
+ * @version 27/6/2021
  */
 public class Jobseeker
 {
@@ -39,6 +39,16 @@ public class Jobseeker
         this.joinDate = joinDate;
     }
 
+    /**
+     * Constructor untuk menginisialisi semua objek dari kelas Jobseeker
+     * @param id adalah id dari seorang jobseeker
+     * @param name adalah nama dari seorang jobseeker
+     * @param email adalah email dari seorang jobseeker
+     * @param password adalah adalah password dari seorang jobseeker
+     * @param year adalah tahun bergabungnya seorang jobseeker
+     * @param month adalah bulan bergabungnya seorang jobseeker
+     * @param dayOfMonth adalah hari bergabungnya seorang jobseeker
+     */
     public Jobseeker(int id, String name, String email, String password, int year, int month, int dayOfMonth)
     {
         this.id = id;
@@ -48,6 +58,13 @@ public class Jobseeker
         this.joinDate = new GregorianCalendar(year, month, dayOfMonth);
     }
 
+    /**
+     * Constructor untuk menginisialisi semua objek dari kelas Jobseeker tanpa tanggal bergabungnya jobseeker
+     * @param id adalah id dari seorang jobseeker
+     * @param name adalah nama dari seorang jobseeker
+     * @param email adalah email dari seorang jobseeker
+     * @param password adalah adalah password dari seorang jobseeker
+     */
     public Jobseeker(int id, String name, String email, String password)
     {
         this.id = id;
@@ -121,7 +138,7 @@ public class Jobseeker
     
     /**
      * Sebuah setter untuk menentukan email seorang jobseeker
-     * @param id merupakan sebuah variabel String
+     * @param email merupakan sebuah variabel String
      */
     public void setEmail(String email)
     {
@@ -162,11 +179,20 @@ public class Jobseeker
         this.joinDate = joinDate;
     }
 
+    /**
+     * Sebuah setter untuk menentukan tanggal bergabungnya seorang jobseeker
+     * @param year merupakan sebuah sebuah variabel integer
+     * @param month merupakan sebuah variabel integer
+     * @param dayOfMonth merupakan sebuah variabel integer
+     */
     public void setJoinDate(int year, int month, int dayOfMonth) 
     {
         this.joinDate = new GregorianCalendar(year, month, dayOfMonth);
     }
-    
+
+    /**
+     * Sebuah method untuk menampilkan informasi mengenai jobseeker terkait
+     */
     @Override
     public String toString() 
     {

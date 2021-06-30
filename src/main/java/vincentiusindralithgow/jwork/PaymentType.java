@@ -1,10 +1,10 @@
 package vincentiusindralithgow.jwork;
 
 /**
- * Write a description of enum class PaymentType here.
+ * Kelas InvoiceStatus merupakan sebuah kelas enumerasi untuk mewakili tipe pembayaran.
  *
  * @author Vincentius Indra Lithgow
- * @version 25/03/2021
+ * @version 27/6/2021
  */
 public enum PaymentType {
     BankPayment("Bank Payment"), EwalletPayment("E-wallet Payment");
